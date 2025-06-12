@@ -32,6 +32,8 @@ This section outlines the key milestones and progress made during the developmen
 
 - Created project repository and initialized Git.
 - Set up root `README.md` with initial structure and tech stack.
+- Backend Project Initialization & TypeScript Setup
+- Frontend Project Setup
 
 ## API Integration & Security
 
