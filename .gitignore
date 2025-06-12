@@ -1,0 +1,15 @@
+# Node.js
+node_modules/
+dist/ # Common TypeScript output directory
+build/ # Common React build output directory
+.env # Environment variables
+
+# AWS
+TBD
+
+# Local development
+.DS_Store # macOS
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vscode
