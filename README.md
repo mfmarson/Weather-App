@@ -1,6 +1,6 @@
 # Weather App Project
 
-This repository contains a simple weather application built for an interview, demonstrating skills in React, TypeScript, and AWS cloud services (Lambda, API Gateway, S3, CloudFront).
+This repository contains a simple weather application, demonstrating skills in React, TypeScript, and AWS cloud services (Lambda, API Gateway, S3, CloudFront).
 
 ## Technologies Used
 
@@ -26,14 +26,12 @@ _(This section will be expanded with detailed instructions later)_
 
 ## Development Log
 
-This section outlines the key milestones and progress made during the development of this weather application.
+This section outlines the key milestones and progress made during the development of this weather application not found in commits.
 
 ### Initial Setup
 
 - Created project repository and initialized Git.
 - Set up root `README.md` with initial structure and tech stack.
-
-_(Keep this section updated as you complete each significant step!)_
 
 ## API Integration & Security
 
