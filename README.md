@@ -33,20 +33,6 @@ This section outlines the key milestones and progress made during the developmen
 - Created project repository and initialized Git.
 - Set up root `README.md` with initial structure and tech stack.
 
-### AWS Infrastructure Setup
-
-- **AWS Account Setup**
-- **IAM Role Creation:** Created `WeatherAppLambdaRole` with `AWSLambdaBasicExecutionRole` permissions for Lambda execution.
-- **OpenWeatherMap API**
-- **Lambda Function Creation:**
-  - Created `weather-app-api` Lambda function using Node.js 20.x runtime
-  - Configured ES module syntax (`export const handler`)
-  - Added secure environment variable storage for `OPENWEATHER_API_KEY`
-  - Implemented weather data fetching from OpenWeatherMap API
-  - Added proper error handling and CORS headers
-  - Successfully tested weather data retrieval
-- **Backend Testing:** Verified Lambda function successfully calls OpenWeatherMap API and returns formatted weather data (city, temperature, description, humidity).
-
 ### Backend Project Initialization & TypeScript Setup
 
 - _(To be completed)_
@@ -55,11 +41,23 @@ This section outlines the key milestones and progress made during the developmen
 
 - _(To be completed)_
 
-## API Integration & Security
+## Backend & AWS Infrastructure
 
-The OpenWeatherMap API integration is secured through AWS Lambda environment variables, preventing API key exposure to the frontend. The Lambda function handles all external API calls and returns formatted weather data to the client.
+### AWS Account Setup
+- **IAM Role Creation:** Created `WeatherAppLambdaRole` with `AWSLambdaBasicExecutionRole` permissions for Lambda execution.
 
-## Authentication Implementation
+### Weather API Lambda Function
+- **Lambda Function Creation:**
+  - Created `weather-app-api` Lambda function using Node.js 20.x runtime
+  - Configured ES module syntax (`export const handler`)
+  - Added secure environment variable storage for `OPENWEATHER_API_KEY`
+  - Implemented weather data fetching from OpenWeatherMap API
+  - Added proper error handling and CORS headers
+  - Successfully tested weather data retrieval
+- **Backend Testing:** Verified Lambda function successfully calls OpenWeatherMap API and returns formatted weather data (city, temperature, description, humidity).
+- **API Security:** The OpenWeatherMap API integration is secured through AWS Lambda environment variables, preventing API key exposure to the frontend. The Lambda function handles all external API calls and returns formatted weather data to the client.
+
+### Authentication Implementation
 - **Database Setup:** Created User_Authentication DynamoDB table with userId primary key and GSI on email field for efficient lookups
 - **Lambda Function:** Built UserAuthentication function with ES module syntax, routing logic for multiple endpoints, and comprehensive error handling
 - **API Gateway Integration:** Extended existing HTTP API with authentication routes:
@@ -69,20 +67,9 @@ The OpenWeatherMap API integration is secured through AWS Lambda environment var
   - OPTIONS /{proxy+} - CORS handling
 - **Testing & Validation:** Successfully tested all endpoints via browser (GET) and fetch() API calls (POST) with proper HTTP status codes
 
-## Error Handling
+### Error Handling
 
-Lambda function includes try-catch blocks with proper HTTP status codes (200 for success, 500 for server errors) and structured error responses.
-
-## Authentication Implementation
-
-- **Database Setup:** Created User_Authentication DynamoDB table with userId primary key and GSI on email field for efficient lookups
-- **Lambda Function:** Built UserAuthentication function with ES module syntax, routing logic for multiple endpoints, and comprehensive error handling
-- **API Gateway Integration:** Extended existing HTTP API with authentication routes:
-  - GET /auth/verify - Token verification
-  - POST /auth/login - User login
-  - POST /auth/register - User registration
-  - OPTIONS /{proxy+} - CORS handling
-- **Testing & Validation:** Successfully tested all endpoints via browser (GET) and fetch() API calls (POST) with proper HTTP status codes
+Lambda functions include try-catch blocks with proper HTTP status codes (200 for success, 500 for server errors) and structured error responses.
 
 ## Bonus Points Notes
 
