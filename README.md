@@ -5,11 +5,11 @@ This repository contains a simple weather application, demonstrating skills in R
 - **Frontend:** React, TypeScript
 - **Backend:** AWS Lambda (Node.js with TypeScript), AWS API Gateway
 - **Deployment:** AWS S3 (static hosting), AWS CloudFront (CDN)
-- **Authentication:** AWS Cognito (user sign-in/sign-out)
+- **Authentication:** JWT-based authentication with AWS Lambda and DynamoDB
 - **Version Control:** Git, GitHub
 
 ## Project Overview
-The application allows users to enter a city name to retrieve current weather details (temperature, conditions, humidity, etc.) from a 3rd-party weather API. All API requests are proxied securely through an AWS Lambda backend to prevent exposure of the API key on the frontend. The frontend is statically hosted on AWS S3/CloudFront with user authentication powered by AWS Cognito.
+The application allows users to enter a city name to retrieve current weather details (temperature, conditions, humidity, etc.) from a 3rd-party weather API. All API requests are proxied securely through an AWS Lambda backend to prevent exposure of the API key on the frontend. The frontend is statically hosted on AWS S3/CloudFront with user authentication powered by AWS Lambda and DynamoDB.
 
 ## Setup & Local Development
 *(This section will be expanded with detailed instructions later)*
