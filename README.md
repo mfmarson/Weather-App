@@ -11,7 +11,6 @@ This repository contains a simple weather application, demonstrating skills in R
 - **Version Control:** Git, GitHub
 
 ## Project Overview
-
 The application allows users to enter a city name to retrieve current weather details (temperature, conditions, humidity, etc.) from a 3rd-party weather API. All API requests are proxied securely through an AWS Lambda backend to prevent exposure of the API key on the frontend. The frontend is statically hosted on AWS S3/CloudFront with user authentication powered by AWS Lambda and DynamoDB.
 
 ## Setup & Local Development
