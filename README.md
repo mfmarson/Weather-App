@@ -65,5 +65,6 @@ Lambda function includes try-catch blocks with proper HTTP status codes (200 for
 ## Bonus Points Notes
 - **TypeScript Usage:** Backend Lambda function uses ES module TypeScript syntax
 - **AWS Lambda Deployment:** Successfully deployed serverless backend using AWS Lambda
+- **Authentication:** JWT-based user authentication system with secure password hashing, token verification, and protected routes using AWS Lambda and DynamoDB
 
 ## Submission Notes
