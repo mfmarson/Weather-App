@@ -60,6 +60,16 @@ This section outlines the key milestones and progress made during the developmen
 
 The OpenWeatherMap API integration is secured through AWS Lambda environment variables, preventing API key exposure to the frontend. The Lambda function handles all external API calls and returns formatted weather data to the client.
 
+## Authentication Implementation
+- **Database Setup:** Created User_Authentication DynamoDB table with userId primary key and GSI on email field for efficient lookups
+- **Lambda Function:** Built UserAuthentication function with ES module syntax, routing logic for multiple endpoints, and comprehensive error handling
+- **API Gateway Integration:** Extended existing HTTP API with authentication routes:
+  - GET /auth/verify - Token verification
+  - POST /auth/login - User login
+  - POST /auth/register - User registration
+  - OPTIONS /{proxy+} - CORS handling
+- **Testing & Validation:** Successfully tested all endpoints via browser (GET) and fetch() API calls (POST) with proper HTTP status codes
+
 ## Error Handling
 
 Lambda function includes try-catch blocks with proper HTTP status codes (200 for success, 500 for server errors) and structured error responses.
