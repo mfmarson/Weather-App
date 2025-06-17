@@ -1,13 +1,22 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Register";
+import GuestDashboard from "./pages/GuestDashboard";
+import UserDashboard from "./pages/UserDashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>The Daily Drizzle</h1>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/guest" element={<GuestDashboard />} />
+        <Route path="/dashboard" element={<UserDashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
