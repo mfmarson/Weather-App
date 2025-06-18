@@ -1,5 +1,5 @@
 export interface WeatherData {
-  feels_Like: number;
+  feels_like: number;
   temperature: number;
   description: string;
   humidity: number;

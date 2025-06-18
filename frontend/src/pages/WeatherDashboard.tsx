@@ -87,8 +87,7 @@ const WeatherDashboard: React.FC = () => {
               </h3>
               <div className={styles.ctaContent}>
                 <p className={styles.ctaDescription}>
-                  Never lose track of the weather that matters to you! Create a
-                  free account to save your favorite locations.
+                  Create a free account to save your favorite locations.
                 </p>
 
                 <button

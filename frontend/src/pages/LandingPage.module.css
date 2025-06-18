@@ -51,7 +51,7 @@
 }
 
 .subtitle {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-style: italic;
   color: #4a5568;
   margin: 0;
@@ -186,5 +186,33 @@
 
   .weatherIcon {
     font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .titleSection {
+    padding: 20px 15px;
+  }
+
+  .primaryButton {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+  .secondaryButton {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .divider {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+  }
+
+  .featuresSection {
+    padding: 15px 20px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 }

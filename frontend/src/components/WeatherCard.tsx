@@ -156,7 +156,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
 
           <div className={styles.weatherDetails}>
             <div className={`${styles.weatherDetailBox} ${styles.feelsLike}`}>
-              Feels like: {weatherData.feels_Like}°F
+              Feels like: {weatherData.feels_like}°F
             </div>
             <div className={`${styles.weatherDetailBox} ${styles.humidity}`}>
               Humidity: {weatherData.humidity}%
