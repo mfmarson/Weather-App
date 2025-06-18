@@ -55,16 +55,12 @@ const WeatherDashboard: React.FC = () => {
           </div>
 
           <div className={styles.actionSection}>
-            {isLoggedIn ? (
-              <button onClick={handleLogout} className={styles.logoutButton}>
-                Logout
-              </button>
-            ) : (
+            {isLoggedIn && ( // ONLY render if isLoggedIn is true
               <button
-                onClick={() => navigate("/login")}
-                className={styles.signInButton}
+                onClick={handleLogout}
+                className={`${styles.button} ${styles.loginButton}`}
               >
-                Sign In
+                Logout
               </button>
             )}
           </div>

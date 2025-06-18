@@ -90,13 +90,9 @@ const RegisterPage: React.FC = () => {
 
         <p className={styles.linkText}>
           Already have an account?{" "}
-          <button
-            onClick={() => navigate("/login")}
-            className={styles.link}
-            style={{ background: "none", border: "none", cursor: "pointer" }}
-          >
+          <span onClick={() => navigate("/login")} className={styles.link}>
             Login
-          </button>
+          </span>
         </p>
       </div>
     </div>

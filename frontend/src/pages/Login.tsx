@@ -30,8 +30,15 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.formCard}>
-        <h2 className={styles.title}>Welcome Back</h2>
+      <div className={styles.appContainer}>
+        {/* Title Section */}
+        <div className={styles.titleSection}>
+          <h1 className={styles.title}>The Daily Drizzle</h1>
+          <p className={styles.subtitle}>
+            Welcome Back!
+            <br /> Please log in to continue
+          </p>
+        </div>
 
         <form onSubmit={handleLogin}>
           <div className={styles.inputGroup}>
@@ -56,7 +63,11 @@ const LoginPage: React.FC = () => {
             />
           </div>
 
-          <button type="submit" disabled={loading} className={styles.button}>
+          <button
+            type="submit"
+            disabled={loading}
+            className={`${styles.button} ${styles.primaryButton}`}
+          >
             {loading ? "Logging in..." : "Login"}
           </button>
 
@@ -65,13 +76,12 @@ const LoginPage: React.FC = () => {
 
         <p className={styles.linkText}>
           Don't have an account?{" "}
-          <button
+          <span
             onClick={() => navigate("/register")}
-            className={styles.link}
-            style={{ background: "none", border: "none", cursor: "pointer" }}
+            className={styles.textLink}
           >
             Sign up
-          </button>
+          </span>
         </p>
       </div>
     </div>

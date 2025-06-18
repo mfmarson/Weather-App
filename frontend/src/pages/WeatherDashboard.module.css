@@ -67,40 +67,28 @@
   margin: 0.25rem 0 0 0;
 }
 
-.logoutButton,
-.signInButton {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 6px;
+.button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 0.9rem;
   transition: all 0.3s ease;
   font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 
-.logoutButton {
-  background: linear-gradient(135deg, #e53e3e 0%, #fc8181 100%);
-  color: white;
-  box-shadow: 0 2px 8px rgba(229, 62, 62, 0.3);
-  align-self: center;
-}
-
-.logoutButton:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.4);
-}
-
-.signInButton {
+.loginButton {
   background: linear-gradient(135deg, #4f8eff 0%, #74b9ff 100%);
   color: white;
-  box-shadow: 0 2px 8px rgba(79, 142, 255, 0.3);
-  align-self: center;
+  box-shadow: 0 4px 12px rgba(79, 142, 255, 0.3);
 }
 
-.signInButton:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(79, 142, 255, 0.4);
+.loginButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 142, 255, 0.4);
 }
 
 .mainContent {
@@ -183,5 +171,12 @@
   .favoritesSection,
   .ctaSection {
     padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    padding: 0.8rem;
+    font-size: 1rem;
   }
 }
