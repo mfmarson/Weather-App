@@ -36,7 +36,7 @@ const LandingPage: React.FC = () => {
             </div>
 
             <div className={styles.feature}>
-              <span className={styles.starIcon}>✅</span>
+              <span className={styles.starIcon}>⭐️</span>
               <div className={styles.featureContent}>
                 <strong>Save Favorites</strong>
                 <p>

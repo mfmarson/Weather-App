@@ -137,7 +137,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .weatherIcon {
@@ -165,11 +164,12 @@
 
 .description {
   text-transform: capitalize;
-  font-weight: 500;
-  font-size: 1.2rem;
+  font-weight: 350;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.95);
   margin: 0;
   text-align: center;
+  opacity: 0.9;
 }
 
 .weatherDetails {
@@ -195,7 +195,7 @@
 /* No results and loading state styles */
 .noResults,
 .loadingState {
-  min-height: 300px;
+  min-height: 290px;
   display: flex;
   color: #fff;
   padding: 40px 25px;
@@ -442,5 +442,13 @@
 
   .errorSection {
     padding: 0 15px 15px;
+  }
+
+  .seamlessLightContainer {
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    margin: 0;
+    color: #2d3748;
   }
 }

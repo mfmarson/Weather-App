@@ -52,7 +52,8 @@
 }
 
 .subtitle {
-  font-size: 1rem;
+  font-size: 1.4rem;
+  padding-top: 0.5rem;
   font-style: italic;
   color: #4a5568;
   margin: 0;

@@ -34,10 +34,7 @@ const LoginPage: React.FC = () => {
         {/* Title Section */}
         <div className={styles.titleSection}>
           <h1 className={styles.title}>The Daily Drizzle</h1>
-          <p className={styles.subtitle}>
-            Welcome Back!
-            <br /> Please log in to continue
-          </p>
+          <p className={styles.subtitle}>Welcome Back!</p>
         </div>
 
         <form onSubmit={handleLogin}>
