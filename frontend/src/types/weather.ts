@@ -1,8 +1,12 @@
 export interface WeatherData {
-  city: string;
+  feels_Like: number;
   temperature: number;
   description: string;
   humidity: number;
+  iconCode: string;
+  iconUrl: string;
+  weatherId: number;
+  main: string;
 }
 
 export interface WeatherResponnse {
