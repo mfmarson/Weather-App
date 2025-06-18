@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/userAuthentication";
+import styles from "./Login.module.css";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -19,8 +20,6 @@ const LoginPage: React.FC = () => {
       localStorage.setItem("authToken", response.token);
       localStorage.setItem("user", JSON.stringify(response.user));
       console.log("Login successful:", response.user);
-      console.log("User:", response.user);
-
       navigate("/dashboard");
     } catch (err) {
       setError("Login failed. Please check your credentials and try again.");
@@ -28,32 +27,53 @@ const LoginPage: React.FC = () => {
       setLoading(false);
     }
   };
-  return (
-    <div>
-      <h2>Login</h2>
 
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="test@test.com"
-          required
-        />
-        <div>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="password123"
-            required
-          />
-        </div>
-        <button type="submit" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
-        </button>
-        {error && <div style={{ color: "red" }}>{error}</div>}
-      </form>
+  return (
+    <div className={styles.container}>
+      <div className={styles.formCard}>
+        <h2 className={styles.title}>Welcome Back</h2>
+
+        <form onSubmit={handleLogin}>
+          <div className={styles.inputGroup}>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="test@test.com"
+              required
+              className={styles.input}
+            />
+          </div>
+
+          <div className={styles.inputGroup}>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="password123"
+              required
+              className={styles.input}
+            />
+          </div>
+
+          <button type="submit" disabled={loading} className={styles.button}>
+            {loading ? "Logging in..." : "Login"}
+          </button>
+
+          {error && <div className={styles.error}>{error}</div>}
+        </form>
+
+        <p className={styles.linkText}>
+          Don't have an account?{" "}
+          <button
+            onClick={() => navigate("/register")}
+            className={styles.link}
+            style={{ background: "none", border: "none", cursor: "pointer" }}
+          >
+            Sign up
+          </button>
+        </p>
+      </div>
     </div>
   );
 };

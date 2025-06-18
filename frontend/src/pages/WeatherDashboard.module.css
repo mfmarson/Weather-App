@@ -1,0 +1,187 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #352163, #33143c);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.appContainer {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f8f4ff 0%, #ede3ff 100%);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  color: #2d3748;
+  overflow: hidden;
+}
+
+.appHeader {
+  padding: 25px 25px 15px;
+  border-bottom: 1px solid rgba(79, 142, 255, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brandSection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brandSection h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  color: #2d3748;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.brandSection h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  color: #2d3748;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.welcomeText {
+  font-size: 0.85rem;
+  color: #4a5568;
+  margin: 0.25rem 0 0 0;
+}
+
+.logoutButton,
+.signInButton {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.logoutButton {
+  background: linear-gradient(135deg, #e53e3e 0%, #fc8181 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(229, 62, 62, 0.3);
+  align-self: center;
+}
+
+.logoutButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.4);
+}
+
+.signInButton {
+  background: linear-gradient(135deg, #4f8eff 0%, #74b9ff 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(79, 142, 255, 0.3);
+  align-self: center;
+}
+
+.signInButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 142, 255, 0.4);
+}
+
+.mainContent {
+  padding: 0;
+}
+
+.favoritesSection,
+.ctaSection {
+  padding: 25px;
+  border-top: 1px solid rgba(79, 142, 255, 0.15);
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: #2d3748;
+}
+
+.comingSoon {
+  text-align: center;
+  color: #4a5568;
+  padding: 1rem 0;
+}
+
+.comingSoon em {
+  color: #4f8eff;
+  font-style: italic;
+}
+
+.ctaContent {
+  text-align: center;
+}
+
+.ctaDescription {
+  margin: 0 0 1.5rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+.featureList {
+  text-align: left;
+  display: inline-block;
+  margin: 0 0 2rem 0;
+  padding-left: 1.2rem;
+  color: #4a5568;
+}
+
+.ctaButton {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #4f8eff 0%, #74b9ff 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(79, 142, 255, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 142, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+
+  .appContainer {
+    max-width: 100%;
+  }
+
+  .appHeader {
+    padding: 20px 20px 15px;
+  }
+
+  .favoritesSection,
+  .ctaSection {
+    padding: 20px;
+  }
+}
