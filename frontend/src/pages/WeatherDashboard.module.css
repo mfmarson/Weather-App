@@ -243,7 +243,7 @@
     font-size: 14px;
   }
 
-  /* Brand section adjustments when logout button is present */
+
   .brandSection {
     align-items: center;
     width: 100%;
@@ -255,15 +255,13 @@
     margin: 0;
   }
 
-  /* Logo size adjustment for mobile */
+
   .logo {
     width: 5rem;
     height: 5rem;
   }
 
-  /* Logout button - small and positioned in bottom right */
 
-  /* General button adjustments */
   .button {
     padding: 0.8rem;
     font-size: 1rem;
@@ -279,7 +277,7 @@
     text-align: center;
   }
 
-  /* Favorites responsive layout */
+
   .favoritesGrid {
     display: grid;
     grid-template-columns: 1fr;
