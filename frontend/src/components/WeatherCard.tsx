@@ -18,22 +18,21 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
   const [gpsLoading, setGpsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSearch = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSearch = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     if (!cityInput.trim()) {
-      setError("Please enter a city name."); // More specific error
+      setError("Please enter a city name.");
       return;
     }
 
     setLoading(true);
-    setError(""); // Clear previous errors
+    setError("");
 
     try {
-      // await new Promise((resolve) => setTimeout(resolve, 800)); // Consider removing this for production
       const data = await getWeather(cityInput.trim());
       setWeatherData(data);
     } catch (err) {
-      console.error("Error fetching weather data:", err); // Log the actual error
+      console.error("Error fetching weather data:", err);
       setError("Could not fetch weather data. Please try again.");
       setWeatherData(null);
     } finally {
@@ -48,21 +47,20 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
     }
 
     setGpsLoading(true);
-    setError(""); // Clear previous errors
+    setError("");
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         try {
           const { latitude, longitude } = position.coords;
-          // await new Promise((resolve) => setTimeout(resolve, 800)); // Consider removing this for production
 
           const cityName = await getCityFromCoordinates(latitude, longitude);
-          setCityInput(cityName); // Set the city input for consistency
+          setCityInput(cityName);
 
           const data = await getWeather(cityName);
           setWeatherData(data);
         } catch (err) {
-          console.error("Error getting GPS weather:", err); // Log the actual error
+          console.error("Error getting GPS weather:", err);
           setError("Could not get weather for your location.");
           setWeatherData(null);
         } finally {
@@ -70,7 +68,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
         }
       },
       (error) => {
-        console.error("Geolocation error:", error); // Log the actual geolocation error
+        console.error("Geolocation error:", error);
         let errorMessage =
           "Could not access your location. Please check permissions.";
         if (error.code === error.PERMISSION_DENIED) {
@@ -105,7 +103,6 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
         data.principalSubdivision ||
         `${lat.toFixed(2)}, ${lng.toFixed(2)}`;
 
-      // Clean up city names if they contain hyphens (e.g., "New-York")
       if (cityName.includes("-")) {
         cityName = cityName.split("-")[0].trim();
       }
@@ -113,15 +110,14 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
       return cityName;
     } catch (error) {
       console.error("Error reverse geocoding:", error);
-      return `${lat.toFixed(2)}, ${lng.toFixed(2)}`; // Fallback to coordinates
+      return `${lat.toFixed(2)}, ${lng.toFixed(2)}`;
     }
   };
 
   const containerClass = seamless
-    ? styles.seamlessLightContainer // Assuming seamlessLightContainer is the desired seamless style
+    ? styles.seamlessLightContainer
     : styles.weatherContainer;
 
-  // Determine the display state
   const renderContent = () => {
     if (error) {
       return (
@@ -179,24 +175,34 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
   return (
     <div className={containerClass}>
       <form onSubmit={handleSearch} className={styles.searchSection}>
-        <input
-          type="text"
-          value={cityInput}
-          onChange={(e) => setCityInput(e.target.value)}
-          placeholder="Enter city name..."
-          className={styles.searchInput}
-          disabled={loading || gpsLoading} // Disable input during loading
-        />
+        <div className={styles.inputContainer}>
+          <input
+            type="text"
+            value={cityInput}
+            onChange={(e) => setCityInput(e.target.value)}
+            placeholder="Enter city name"
+            className={styles.searchInput}
+            disabled={loading || gpsLoading}
+          />
+          <button
+            type="submit"
+            disabled={loading || gpsLoading || !cityInput.trim()}
+            className={styles.searchButton}
+            aria-label="Search weather"
+          >
+            {loading ? "🔍" : "Search"}
+          </button>
+        </div>
 
         {showGPS && (
           <button
             type="button"
             onClick={handleGPSLocation}
-            disabled={gpsLoading || loading} // Disable GPS button if either is loading
+            disabled={gpsLoading || loading}
             className={styles.gpsButton}
-            aria-label="Get current location weather"
+            aria-label="Use current location"
           >
-            <span>{gpsLoading ? "🌍" : "📍"}</span>
+            {gpsLoading ? "🌍" : "📍 Use My Location"}
           </button>
         )}
       </form>
@@ -205,5 +211,4 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
     </div>
   );
 };
-
 export default WeatherCard;

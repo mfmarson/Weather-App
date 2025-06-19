@@ -144,6 +144,77 @@
   box-shadow: 0 5px 15px rgba(79, 142, 255, 0.4);
 }
 
+/* Favorites Section */
+.favoritesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.favoriteCard {
+  background: linear-gradient(135deg, #f8f4ff 0%, #ede3ff 100%);
+  border: 1px solid rgba(79, 142, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.favoriteCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(79, 142, 255, 0.2);
+  border-color: rgba(79, 142, 255, 0.4);
+}
+
+.favoriteHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.cityName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #2d3748;
+}
+
+.favoriteIcon {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.favoriteDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.favoriteCard .temperature {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+}
+
+.favoriteCard .description {
+  font-size: 0.9rem;
+  color: #4a5568;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.favoriteCard .humidity {
+  font-size: 0.8rem;
+  color: #718096;
+  margin: 0;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
   .container {
     padding: 1rem 0.5rem;
@@ -167,6 +238,11 @@
   .appHeader {
     display: block;
   }
+
+  .loginButton{
+    margin-top: 1rem;
+  }
+
   .brandSection h1 {
     padding-bottom: 0.5rem;
   }
@@ -184,5 +260,31 @@
 
   .sectionTitle {
     text-align: center;
+  }
+
+  /* Favorites responsive */
+  .favoritesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .favoriteCard {
+    padding: 0.75rem;
+  }
+
+  .favoriteHeader {
+    margin-bottom: 0.5rem;
+  }
+
+  .cityName {
+    font-size: 1rem;
+  }
+
+  .favoriteIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .favoriteCard .temperature {
+    font-size: 1.25rem;
   }
 }

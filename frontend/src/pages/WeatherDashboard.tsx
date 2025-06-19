@@ -6,12 +6,23 @@ import styles from "./WeatherDashboard.module.css";
 interface User {
   userId: string;
   email: string;
+  favorites?: FavoriteLocation[];
+}
+
+interface FavoriteLocation {
+  id: string;
+  city: string;
+  temperature: number;
+  description: string;
+  humidity: number;
+  iconCode: string;
+  iconUrl: string;
 }
 
 const WeatherDashboard: React.FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [user, setUser] = useState<User | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [favorites, setFavorites] = useState<FavoriteLocation[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,6 +34,11 @@ const WeatherDashboard: React.FC = () => {
         const parsedUser = JSON.parse(userData);
         setUser(parsedUser);
         setIsLoggedIn(true);
+
+        // Set favorites from user data if available
+        if (parsedUser.favorites) {
+          setFavorites(parsedUser.favorites);
+        }
       } catch (error) {
         console.error("Error parsing user data:", error);
         localStorage.removeItem("user");
@@ -36,7 +52,12 @@ const WeatherDashboard: React.FC = () => {
     localStorage.removeItem("user");
     setUser(null);
     setIsLoggedIn(false);
+    setFavorites([]);
     navigate("/");
+  };
+
+  const handleFavoriteClick = (cityName: string) => {
+    console.log(`Selected favorite city: ${cityName}`);
   };
 
   return (
@@ -53,29 +74,62 @@ const WeatherDashboard: React.FC = () => {
               The Daily Drizzle
             </h1>
           </div>
-
-          <div className={styles.actionSection}>
-            {isLoggedIn && ( // ONLY render if isLoggedIn is true
-              <button
-                onClick={handleLogout}
-                className={`${styles.button} ${styles.loginButton}`}
-              >
-                Logout
-              </button>
-            )}
-          </div>
         </div>
 
         <div className={styles.mainContent}>
           <div className={styles.weatherSection}>
-            <WeatherCard showGPS={true} seamless={true} />{" "}
+            <WeatherCard showGPS={true} seamless={true} />
           </div>
 
           {isLoggedIn && (
             <div className={styles.favoritesSection}>
               <h3 className={styles.sectionTitle}>⭐ Favorite Locations</h3>
-              <div className={styles.comingSoon}>
-                <p>Save your favorite cities for quick weather access!</p>
+
+              {favorites.length > 0 ? (
+                <div className={styles.favoritesGrid}>
+                  {favorites.map((favorite) => (
+                    <div
+                      key={favorite.id}
+                      className={styles.favoriteCard}
+                      onClick={() => handleFavoriteClick(favorite.city)}
+                    >
+                      <div className={styles.favoriteHeader}>
+                        <h4 className={styles.cityName}>{favorite.city}</h4>
+                        <img
+                          src={favorite.iconUrl}
+                          alt={favorite.description}
+                          className={styles.favoriteIcon}
+                        />
+                      </div>
+
+                      <div className={styles.favoriteDetails}>
+                        <div className={styles.temperature}>
+                          {favorite.temperature}°F
+                        </div>
+                        <div className={styles.description}>
+                          {favorite.description}
+                        </div>
+                        <div className={styles.humidity}>
+                          Humidity: {favorite.humidity}%
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className={styles.comingSoon}>
+                  <p>Save your favorite cities for quick weather access!</p>
+                </div>
+              )}
+              <div className={styles.actionSection}>
+                {isLoggedIn && (
+                  <button
+                    onClick={handleLogout}
+                    className={`${styles.button} ${styles.loginButton}`}
+                  >
+                    Logout
+                  </button>
+                )}
               </div>
             </div>
           )}
