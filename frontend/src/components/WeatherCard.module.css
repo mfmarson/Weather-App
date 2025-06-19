@@ -1,4 +1,5 @@
-/* Base styles for the weather container */
+/* BASE CONTAINER & LAYOUT STYLES */
+
 .weatherContainer {
   position: relative;
   max-width: 410px;
@@ -11,6 +12,7 @@
   overflow: hidden;
 }
 
+/* ANIMATION STYLES */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -30,7 +32,7 @@
   }
 }
 
-/* Search and GPS Button Layout */
+/* SEARCH BUTTON & INPUT STYLES */
 .searchButton {
   height: 50px;
   padding: 0 20px;
@@ -65,29 +67,13 @@
   gap: 15px;
 }
 
-.gpsButton {
-  width: 90%;
-  max-width: 380px;
-  height: 50px;
-  background: linear-gradient(135deg, #4f8eff 0%, #74b9ff 100%);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 3px 10px rgba(79, 142, 255, 0.3);
-  font-size: 18px;
-  margin: auto;
-  white-space: nowrap;
-}
-
 .searchInput {
   flex: 1;
   border-radius: 6px;
   font-size: 16px;
   text-align: center;
   height: 50px;
+  width: 110px;
   outline: none;
   color: #fff;
   background: rgba(255, 255, 255, 0.05);
@@ -111,20 +97,25 @@
   text-align: center;
 }
 
-.errorSection {
-  padding: 0 25px 20px;
-}
-
-.errorText {
-  color: #ff6b6b;
-  font-size: 0.9rem;
-  text-align: center;
-  background: rgba(255, 107, 107, 0.1);
-  padding: 10px;
+/* GPS BUTTON STYLES */
+.gpsButton {
+  width: 90%;
+  max-width: 380px;
+  height: 50px;
+  background: linear-gradient(135deg, #4f8eff 0%, #74b9ff 100%);
+  color: white;
+  border: none;
   border-radius: 6px;
-  border: 1px solid rgba(255, 107, 107, 0.3);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(79, 142, 255, 0.3);
+  font-size: 18px;
+  margin: auto;
+  white-space: nowrap;
 }
 
+/* WEATHER DISPLAY STYLES */
 .weatherDisplay {
   padding: 20px 25px 30px;
   display: flex;
@@ -162,20 +153,24 @@
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
 }
 
-/* .temperature {
+.temperature {
   display: flex;
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 700;
   align-items: flex-start;
   color: #fff;
-  /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.3);
+  flex-wrap: nowrap;
+  justify-content: center;
+  letter-spacing: 0.5px;
+}
 
-/* .temperature span {
-  font-size: 2rem;
+.temperature span {
+  font-size: 2.2rem;
   font-weight: 500;
-  margin: 10px 0 0 6px;
+  margin: 10px 0 0 8px;
   opacity: 0.9;
-}  */
+}
 
 .description {
   text-transform: capitalize;
@@ -209,10 +204,9 @@
 .feelsLike,
 .humidity {
   opacity: 0.9;
-  font-size: 1rem;
 }
 
-/* No results and loading state styles */
+/* NO RESULTS & LOADING STATES */
 .noResults,
 .loadingState {
   min-height: 290px;
@@ -254,15 +248,22 @@
   opacity: 0.8;
 }
 
-/* Seamless theme styles */
-.seamlessContainer {
-  border-radius: 0;
-  box-shadow: none;
-  background: transparent;
-  margin: 0;
+/* ERROR HANDLING STYLES */
+.errorSection {
+  padding: 0 25px 20px;
 }
 
-/* Seamless light theme styles */
+.errorText {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  text-align: center;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+/* SEAMLESS LIGHT THEME STYLES  */
 .seamlessLightContainer {
   border-radius: 0;
   box-shadow: none;
@@ -325,12 +326,6 @@
   border: 1px solid rgba(229, 62, 62, 0.2);
 }
 
-/* .seamlessLightContainer .mainWeatherContainer {
-  background: rgba(255, 255, 255, 0.1);
-  border: 0.5px solid #4f8eff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-} */
-
 .seamlessLightContainer .weatherDetailBox {
   background: rgba(79, 142, 255, 0.08);
   border: 1px solid rgba(79, 142, 255, 0.15);
@@ -341,63 +336,7 @@
   color: #2d3748;
 }
 
-/* BASE TEMPERATURE STYLES (for larger screens or default) */
-.temperature {
-  display: flex;
-  font-size: 5rem;
-  font-weight: 700;
-  align-items: flex-start;
-  color: #fff;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.3);
-  flex-wrap: nowrap;
-  justify-content: center;
-  letter-spacing: 0.5px;
-}
-
-.temperature span {
-  font-size: 2.2rem;
-  font-weight: 500;
-  margin: 10px 0 0 8px;
-  opacity: 0.9;
-}
-
-/* --- START: Media Queries Reordered (LARGEST TO SMALLEST) --- */
-
-/* Responsive design for screens up to 624px */
-/* @media (max-width: 624px) {
-  .searchSection {
-    padding: 20px;
-  }
-
-  .weatherDisplay,
-  .noResults,
-  .loadingState {
-    padding: 30px 20px;
-  }
-
-  .mainWeatherContainer {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .weatherIcon {
-    margin-right: 0;
-    margin-bottom: 20px;
-    width: 85px;
-    height: 85px;
-  }
-
-  .temperature {
-    font-size: 3.2rem;
-  }
-
-  .weatherDetails {
-    flex-direction: column;
-    gap: 10px;
-  }
-} */
-
-/* Responsive design for screens up to 480px (overrides 624px for these sizes) */
+/* RESPONSIVE DESIGN - MOBILE */
 @media (max-width: 480px) {
   .weatherContainer {
     border-radius: 0;
@@ -412,17 +351,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     padding: 5px;
-    align-items: center;
     margin-right: 1rem;
-  }
-
-  .inputContainer {
-    display: flex;
-    gap: 8px;
-    width: 100%;
-    margin-bottom: 0;
   }
 
   .searchInput {
@@ -455,24 +385,13 @@
   }
 
   .searchButton {
-    padding: 10px;
-    margin: auto;
-  }
-  /* GPS button stays full width below */
-  .gpsButton {
-    width: 97%;
+    padding: 5px;
     height: 54px;
-    padding: 10px;
-    background: linear-gradient(135deg, #4f8eff 0%, #74b9ff 100%);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.1s ease;
-    box-shadow: 0 3px 10px rgba(79, 142, 255, 0.3);
-    font-size: 16px;
-    margin-left: 1rem;
+    font-size: 1rem;
+  }
+
+  .searchAndGPSButton {
+    margin: 0px auto;
   }
 
   .weatherDisplay,
@@ -491,16 +410,6 @@
     margin-bottom: 10px;
     width: 75px;
     height: 75px;
-  }
-
-  .temperature {
-    /* font-size: 2.5rem;
-    flex-wrap: nowrap;
-    justify-content: center; */
-  }
-
-  .temperature span {
-    /* font-size: 1.3rem; */
   }
 
   .description {

@@ -1,53 +1,98 @@
-# Weather App Project
-
-This repository contains a simple weather application, demonstrating skills in React, TypeScript, and AWS cloud services (Lambda, API Gateway, S3, CloudFront).
-
-## Technologies Used
-
-- **Frontend:** React, TypeScript
-- **Backend:** AWS Lambda (Node.js with TypeScript), AWS API Gateway
-- **Deployment:** AWS S3 (static hosting), AWS CloudFront (CDN)
-- **Authentication:** JWT-based authentication with AWS Lambda and DynamoDB
-- **Version Control:** Git, GitHub
+# The Daily Drizzle
 
 ## Project Overview
 
-The application allows users to enter a city name to retrieve current weather details (temperature, conditions, humidity, etc.) from a 3rd-party weather API. All API requests are proxied securely through an AWS Lambda backend to prevent exposure of the API key on the frontend. The frontend is statically hosted on AWS S3/CloudFront with user authentication powered by AWS Lambda and DynamoDB.
+The application allows users to enter a city name to retrieve current weather details (temperature, conditions, humidity, etc.) from OpenWeather API. All API requests are proxied securely through an AWS Lambda backend to prevent exposure of the API key on the frontend. The frontend is statically hosted on AWS S3/CloudFront with user authentication and favorites powered by AWS Lambda and DynamoDB.
 
-## Setup & Local Development
+## Table of Contents
 
-*(This section will be expanded with detailed instructions later)*
+- [How to Use the App](#how-to-use-the-app)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Architecture](#project-architecture)
+- [Development Log](#development-log)
+- [Backend Setup and Infrastructure](#backend-setup-and-infrastructure)
+- [Authentication Flow Validation](#authentication-flow-validation)
+- [Challenges and Solutions](#challenges-and-solutions)
+- [Error Handling](#error-handling)
+- [Known Issues](#known-issues)
+- [Bonus Points Notes](#bonus-points-notes)
 
-### Prerequisites
+## How to Use the App
 
-- Node.js
-- npm or yarn
-- An AWS Account
-- An API Key from a 3rd-party weather service (OpenWeatherMap)
+The Daily Drizzle is deployed and ready to use! Simply visit the live application URL below to get started.
+
+### Getting Started
+
+1. **Visit the Application**: Navigate to https://d3vvhrujqzim5o.cloudfront.net/
+2. **Choose Your Experience**:
+   - **Registered User:** Use the <u>**pre-filled login credentials**</u> displayed in the input fields
+   - **Guest User**: Skip login and start using the weather features immediately
+
+### User Experience Options
+
+#### For Registered Users
+
+- **Login**: Use the demo credentials that are pre-populated in the login form
+- **Access**: Full application features including example displays of mock favorite locations
+
+#### For Guest Users
+
+- **No Registration Required**: Jump straight into weather searching
+- **Core Features**: Search weather by city name or use GPS location
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+
+#### New User Registration
+
+- **Registration Available**: New users can create accounts through the registration form
+- **Confirmation**: Registration data can be verified in browser cookies (Developer Tools → Application → Cookies)
+- **Current Limitation**: Due to a DynamoDB connectivity issue, newly registered users cannot login with their credentials at this time
+
+### App Features You Can Try
+
+1. **Weather Search**: Enter any city name to get current weather conditions
+2. **GPS Location**: Allow location access to get weather for your current position
+3. **Dynamic Interface**: Experience responsive design and real-time weather icons
+4. **User Authentication**: Test the login/logout flow with demo credentials
+
+## Technologies Used
+
+- **Frontend:**
+  - React
+  - TypeScript
+  - HTML5 & CSS3
+- **Backend:**
+  - AWS Lambda(Node.js with Typescript)
+  - AWS Gateway API (HTTP API)
+  - AWS DynamoDB
+- **Deployment & Hosting:**
+  - AWS S3
+  - AWS CloudFront
+- **Authentication Mechanism:**
+  - JWT (JSON Web Tokens)
+  - Password Hashing (bcrypt)
+- **Development Tools & Practices:**
+  - Node.js
+  - npm
+  - Git/GitHub
+  - Virtual Studio Code
+
+## Project Architecture
+
+The application is built as a serverless, single-page application.
+
+- **Frontend (React/TypeScript):** The user interface is a responsive React application. It handles user interactions, displays weather data, and manages user authentication flows.
+- **Backend (AWS Lambda/API Gateway/DynamoDB):**
+  - All external API requests are securely proxied through AWS Lambda functions, protecting sensitive API keys from being exposed on the client-side.
+  - User authentication (signup, login, token verification) is managed by dedicated Lambda functions, which interact with DynamoDB for user data storage.
+  - AWS API Gateway serves as the single entry point for all frontend-to-backend communication, providing secure and efficient routing to the respective Lambda Authentication and Weather Data functions.
+- **Deployment:** The compiled React application is hosted as static files on AWS S3, delivered globally and securely via AWS CloudFront.
 
 ## Development Log
 
-This section outlines the progress made during the development of this weather application not found in commits.
+This section outlines the progress made during the development of this weather application not found in GitHub commit logs.
 
-## Current Status
-
-- ✅ Weather API Integration
-- ✅ User Registration and Login
-- ✅ JWT Token Authentication
-- 🚧 Frontend Development (In-progress)
-- 🚧 Deployment & Integration
-- 🚧 Final Testing
-
-### Initial Setup
-
-- Created project repository and initialized Git.
-- Set up root `README.md` with initial structure and tech stack.
-
-### Frontend Project Setup
-
-- *(To be completed)*
-
-## Backend Setup & AWS Infrastructure
+## Backend Setup and Infrastructure
 
 ### AWS Account Setup
 
@@ -81,33 +126,37 @@ This section outlines the progress made during the development of this weather a
 #### API Gateway Integration
 
 - **Route Extension:** Extended existing HTTP API with authentication endpoints:
-  - `POST /auth/register` 
-  - `POST /auth/login` - Credential verification and token generation  
+  - `POST /auth/register`
+  - `POST /auth/login` - Credential verification and token generation
   - `GET /auth/verify` - JWT token validation and user info retrieval
   - `OPTIONS /{proxy+}` - CORS preflight handling
 - **CORS Configuration:** Comprehensive CORS headers for cross-origin browser requests
 
-#### Technical Challenges Resolved
-
-- **AWS Library Errors:** Resolved SDK availability bug by identifying alternative approach using runtime-available APIs
-- **API Gateway Format Differences:** Learned that HTTP API Gateway sends data in a different format than expected and updated code to handle both formats
-- **Database Connection Issues:** When the standard database connection tools didn't work, created a backup plan to keep the authentication system functional
-
-#### Authentication Flow Validation
+## Authentication Flow Validation
 
 - **Registration Testing:** Successfully created users with secure password storage and immediate JWT token response
 - **Login Testing:** Verified credential validation against mock user database with proper password verification
 - **Token Verification:** Confirmed JWT token validation with user information extraction
 - **Security Testing:** Validated error responses for invalid credentials, expired tokens, and malformed requests
 
-### Error Handling
+## Challenges and Solutions
 
-Lambda functions include try-catch blocks with proper HTTP status codes (200 for success, 401 for authentication errors, 500 for server errors) and structured error responses with detailed logging via CloudWatch.
+This section highlights key technical hurdles encountered during development and how they were overcome.
+
+- **AWS SDK Availability:** Identified alternative ways to utilize AWS services
+- **API Gateway Format Differences:** Identified and adjusted the Lambda function to handle different data formats (HTTP API Gateway compared to REST API)
+- **Database Connectivity:** When troubleshooting a connectivity problem didn't work, I decided to provide mock data. By providing detailed instruction, the user will be able to experience all application features until the issue is resolved
+- **HTTPS for GPS** Identified browsers require HTTPS to utilize geolocation in production environment. Built a CloudFront distribution to implement all requirements
+- **CORS Errors:** Solved "blocked by CORS policy" errors by moving all the permission headers to the Lambda functions
+
+## Error Handling
+
+- **Error Responses:** Confirmed Lambda functions were assigned with try-catch blocks
+- **HTTPS Status Codes** Implemented HTTP status codes were returned for client and server side errors (200, 400, 201, 500)
+- **CloudWatch Logs** Learned and utilized CloudWatch's real-time monitoring to identify bugs
 
 ## Bonus Points Notes
 
 - **TypeScript Usage:** Backend Lambda function uses ES module TypeScript syntax
-- **AWS Lambda Deployment:** Successfully deployed serverless backend using AWS Lambda  
+- **AWS Lambda Deployment:** Successfully deployed serverless backend using AWS Lambda
 - **Authentication:** Complete JWT-based user authentication system with secure password hashing, token verification, and protected routes using AWS Lambda and DynamoDB
-
-## Submission Notes

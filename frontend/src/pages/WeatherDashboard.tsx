@@ -74,16 +74,18 @@ const WeatherDashboard: React.FC = () => {
               The Daily Drizzle
             </h1>
           </div>
-          <span>
-            {isLoggedIn && (
-              <button
-                onClick={handleLogout}
-                className={`${styles.button} ${styles.loginButton}`}
-              >
-                Logout
-              </button>
-            )}
-          </span>
+
+          {/* Subtle logout button - only shows when logged in */}
+          {isLoggedIn && (
+            <button
+              onClick={handleLogout}
+              className={styles.subtleLogoutButton}
+              aria-label="Logout"
+              title="Logout"
+            >
+              Logout
+            </button>
+          )}
         </div>
 
         <div className={styles.mainContent}>
