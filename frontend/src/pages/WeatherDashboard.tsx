@@ -74,6 +74,16 @@ const WeatherDashboard: React.FC = () => {
               The Daily Drizzle
             </h1>
           </div>
+          <span>
+            {isLoggedIn && (
+              <button
+                onClick={handleLogout}
+                className={`${styles.button} ${styles.loginButton}`}
+              >
+                Logout
+              </button>
+            )}
+          </span>
         </div>
 
         <div className={styles.mainContent}>
@@ -83,7 +93,7 @@ const WeatherDashboard: React.FC = () => {
 
           {isLoggedIn && (
             <div className={styles.favoritesSection}>
-              <h3 className={styles.sectionTitle}>⭐ Favorite Locations</h3>
+              <h3 className={styles.sectionTitle}>⭐ Your Locations</h3>
 
               {favorites.length > 0 ? (
                 <div className={styles.favoritesGrid}>
@@ -104,7 +114,7 @@ const WeatherDashboard: React.FC = () => {
 
                       <div className={styles.favoriteDetails}>
                         <div className={styles.temperature}>
-                          {favorite.temperature}°F
+                          {favorite.temperature.toFixed(1)}°F
                         </div>
                         <div className={styles.description}>
                           {favorite.description}
@@ -121,16 +131,6 @@ const WeatherDashboard: React.FC = () => {
                   <p>Save your favorite cities for quick weather access!</p>
                 </div>
               )}
-              <div className={styles.actionSection}>
-                {isLoggedIn && (
-                  <button
-                    onClick={handleLogout}
-                    className={`${styles.button} ${styles.loginButton}`}
-                  >
-                    Logout
-                  </button>
-                )}
-              </div>
             </div>
           )}
 

@@ -143,7 +143,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
                 className={styles.weatherIcon}
               />
               <div className={styles.temperature}>
-                {weatherData.temperature}
+                {weatherData.temperature.toFixed(1)}
                 <span>°F</span>
               </div>
             </div>
@@ -175,7 +175,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
   return (
     <div className={containerClass}>
       <form onSubmit={handleSearch} className={styles.searchSection}>
-        <div className={styles.inputContainer}>
+        <div className={styles.searchAndButtonContainer}>
           <input
             type="text"
             value={cityInput}
@@ -190,7 +190,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
             className={styles.searchButton}
             aria-label="Search weather"
           >
-            {loading ? "🔍" : "Search"}
+            {loading ? "Searching..." : "Search"}
           </button>
         </div>
 
@@ -202,7 +202,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
             className={styles.gpsButton}
             aria-label="Use current location"
           >
-            {gpsLoading ? "🌍" : "📍 Use My Location"}
+            {gpsLoading ? "Searching..." : "📍 Use My Location"}
           </button>
         )}
       </form>

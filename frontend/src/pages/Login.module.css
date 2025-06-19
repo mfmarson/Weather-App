@@ -26,12 +26,12 @@
   margin-bottom: 2rem;
 }
 
-.weatherIcon {
+/* .weatherIcon {
   font-size: 4rem;
   margin-bottom: 1.5rem;
   animation: float 3s ease-in-out infinite;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
-}
+} */
 
 @keyframes float {
   0%,
@@ -75,6 +75,7 @@
   font-size: 1rem;
   font-family: "Montserrat", sans-serif;
   transition: border-color 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .input:focus {
