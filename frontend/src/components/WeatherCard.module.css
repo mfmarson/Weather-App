@@ -347,12 +347,21 @@
     margin-bottom: 0;
   }
 
+  /* IMPORTANT: Apply consistent padding to search section in ALL states -- refactor planned to clean up consistency */
   .searchSection {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5px;
-    margin-right: 1rem;
+    padding: 12px 20px;
+    gap: 15px;
+  }
+
+  .searchAndButtonContainer {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
   }
 
   .searchInput {
@@ -385,13 +394,16 @@
   }
 
   .searchButton {
-    padding: 5px;
+    padding: 5px 15px;
     height: 54px;
     font-size: 1rem;
   }
 
-  .searchAndGPSButton {
-    margin: 0px auto;
+  .gpsButton {
+    width: 100%;
+    max-width: none;
+    height: 50px;
+    margin: 0;
   }
 
   .weatherDisplay,
@@ -436,5 +448,66 @@
     background: transparent;
     margin: 0;
     color: #2d3748;
+  }
+
+  .seamlessLightContainer .searchSection {
+    padding: 12px 20px !important;
+  }
+
+  .seamlessLightContainer .searchAndButtonContainer {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .seamlessLightContainer .gpsButton {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .searchSection {
+    padding: 12px 25px !important;
+    gap: 15px;
+  }
+
+  .searchAndButtonContainer {
+    width: calc(100% - 0px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .gpsButton {
+    width: calc(100% - 0px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .seamlessLightContainer .searchSection {
+    padding: 12px 25px !important;
+  }
+
+  .seamlessLightContainer .searchAndButtonContainer {
+    width: calc(100% - 0px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .seamlessLightContainer .gpsButton {
+    width: calc(100% - 0px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .searchSection {
+    padding: 12px 30px !important;
+  }
+
+  .seamlessLightContainer .searchSection {
+    padding: 12px 30px !important;
   }
 }
