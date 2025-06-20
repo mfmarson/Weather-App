@@ -1,0 +1,8 @@
+{
+  "name": "weather-function",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "description": "Lambda function for weather API calls",
+  "dependencies": {}
+}

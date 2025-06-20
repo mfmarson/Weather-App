@@ -70,12 +70,28 @@ The Daily Drizzle is deployed and ready to use! Simply visit the live applicatio
   - AWS CloudFront
 - **Authentication Mechanism:**
   - JWT (JSON Web Tokens)
-  - Password Hashing (bcrypt)
+  - Password Hashing (Node.js crypto module)
 - **Development Tools & Practices:**
   - Node.js
   - npm
   - Git/GitHub
   - Virtual Studio Code
+  
+## Repository Structure
+
+daily-drizzle/
+├── frontend/              # React TypeScript application
+├── backend/
+│   ├── functions/
+│   │   ├── auth/         # UserAuthentication Lambda function
+│   │   └── weather/      # weather-app-api Lambda function
+│   ├── infrastructure/
+│   │   ├── aws-setup.md          # AWS services configuration
+│   │   ├── deployment.md         # Deployment instructions
+│   │   └── api-endpoints.md      # API documentation
+│   └── package.json      # Backend dependencies
+└── README.md
+
 
 ## Project Architecture
 
@@ -93,6 +109,8 @@ The application is built as a serverless, single-page application.
 This section outlines the progress made during the development of this weather application not found in GitHub commit logs.
 
 ## Backend Setup and Infrastructure
+
+**Note: Complete backend source code is available in the `/backend` directory of this repository.**
 
 ### AWS Account Setup
 

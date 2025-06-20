@@ -2,11 +2,20 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "Backend Lambda functions for Daily Drizzle weather app",
+  "dependencies": {
+    "aws-sdk": "^2.1496.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.130",
+    "@types/jsonwebtoken": "^9.0.5"
+  }
 }

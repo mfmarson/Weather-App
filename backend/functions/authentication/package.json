@@ -1,0 +1,11 @@
+{
+  "name": "auth-function",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "description": "Lambda function for user authentication",
+  "dependencies": {
+    "aws-sdk": "^2.1496.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
