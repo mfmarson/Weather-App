@@ -86,8 +86,6 @@ daily-drizzle/
 │   │   ├── auth/         # UserAuthentication Lambda function
 │   │   └── weather/      # weather-app-api Lambda function
 │   ├── infrastructure/
-│   │   ├── aws-setup.md          # AWS services configuration
-│   │   ├── deployment.md         # Deployment instructions
 │   │   └── api-endpoints.md      # API documentation
 │   └── package.json      # Backend dependencies
 └── README.md
