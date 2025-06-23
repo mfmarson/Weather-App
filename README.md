@@ -147,7 +147,7 @@ This section outlines the progress made during the development of this weather a
   - `POST /auth/register`
   - `POST /auth/login` - Credential verification and token generation
   - `GET /auth/verify` - JWT token validation and user info retrieval
-  - `OPTIONS /{proxy+}` - CORS preflight handling
+  - `OPTIONS /{proxy+}` - CORS preflight handling (to be removed on next update as CORS functionality is housed within Lambda)
 - **CORS Configuration:** Comprehensive CORS headers for cross-origin browser requests
 
 ## Authentication Flow Validation
