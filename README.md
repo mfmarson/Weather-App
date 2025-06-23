@@ -79,18 +79,8 @@ The Daily Drizzle is deployed and ready to use! Simply visit the live applicatio
   
 ## Repository Structure
 
-daily-drizzle/
-├── frontend/              # React TypeScript application
-├── backend/
-│   ├── functions/
-│   │   ├── auth/         # UserAuthentication Lambda function
-│   │   └── weather/      # weather-app-api Lambda function
-│   ├── infrastructure/
-│   │   ├── aws-setup.md          # AWS services configuration
-│   │   ├── deployment.md         # Deployment instructions
-│   │   └── api-endpoints.md      # API documentation
-│   └── package.json      # Backend dependencies
-└── README.md
+![image](https://github.com/user-attachments/assets/f3d9cc8d-1825-4b8d-ad28-ba452a509fa4)
+
 
 
 ## Project Architecture
